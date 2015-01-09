@@ -22,13 +22,13 @@
     </div>
     <div class="buy">
         <p>数量:</p>
-        <input name="text" value="1" id="num" />
+        <input type="text" value="1" id="num" />
         <button class="btn change" style="height:36px;" id="plus">+</button>
         <button class="btn change" style="height:36px;" id="sub">-</button>
 
-        <button class="btn btn-primary btn-outlined"><a href="javascript:void(0);" class="cart">我的购物车</a></button>
+        <!--<button class="btn btn-primary btn-outlined"><a href="javascript:void(0);" class="cart">我的购物车</a></button>
         <button class="btn btn-positive btn-outlined" id="add_to_cart" data-pid="{{product.uid}}">加入购物车</button>
-        <button class="btn btn-negative btn-outlined" id="buy_it_now">立即购买</button>
+        <button class="btn btn-negative btn-outlined" id="buy_it_now">立即购买</button>-->
     </div>
     <form method="post" action="/pay/payment/">
     {% csrf_token %}
@@ -36,24 +36,23 @@
             <h4>收货人信息</h4>
             <div class="input-row">
                 <label>收货人</label>
-                <input type="text" name="name" placeholder="" value="{{item.name}}" disabled>
+                <input type="text" name="name" placeholder="" value="" disabled>
             </div>
             <div class="input-row">
                 <label>手机号码</label>
-                <input type="tel" name="phone" placeholder="" value="{{item.phone}}" disabled>
+                <input type="tel" name="phone" placeholder="" value="" disabled>
             </div>
             <div class="input-row">
                 <label>详细地址</label>
-                <input type="text" name="address" placeholder="" value="{{item.address}}" disabled>
+                <input type="text" name="address" placeholder="" value="" disabled>
             </div>
             <div class="input-row">
                 <label>总价</label>
-                <input type="text" name="tprice" value="{{item.price}}" disabled class="total" >
+                <input type="text" name="tprice" value="" disabled class="total" >
             </div>
-            <input name="orderid" value="{{item.id}}" class="orderid"/>
+            <input name="orderid" value="" class="orderid"/>
             <div class="submit">
-                <button type="submit" class="btn btn-positive">确认支付</button>
-                <button type="button" class="btn btn-negative cancelOrder" data-oid="{{item.id}}">取消订单</button>
+                <button id="add_to_cart" type="submit" class="btn btn-positive">确认订单</button>   
             </div>
         </div>
     </form>
