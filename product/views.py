@@ -48,7 +48,7 @@ def cart_view(request, templateName):
     # if 'openid' not in request.session:
     #     return HttpResponseRedirect('/code/?next=/cart/')
     cart = get_cart(request)
-    #print "cart_view", cart
+    print "cart_view+++", cart
     products = []
     for key, value in cart.items.items():
         item = Product.objects.get(uid = key)
@@ -83,14 +83,14 @@ def add_product(request):
     if request.method == 'POST':
         productID = request.POST.get('productID', None)
         number = request.POST.get('number', None)
-        #del request.session['cart']
+        del request.session['cart']
         cart = get_cart(request)
-	#print "1yess+++", cart
+	print "add_product", cart
         if productID:
             product = Product.objects.get(uid = productID)
             cart.add(product,number)
             request.session['cart'] = cart
-            print "yess+++",  cart
+            print "yess+++",  request.session['cart']
             success = True
     return HttpResponse(json.dumps({
         'success' : success,

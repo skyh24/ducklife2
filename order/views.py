@@ -66,6 +66,7 @@ def create_order(request):
         for char in openid:
             order_id += ord(char)
         cart = request.session['cart']
+        print "create_order+++", cart
         if form.is_valid() and cart.empty() is not True:
             clean = form.cleaned_data
             order = Order.objects.create(
