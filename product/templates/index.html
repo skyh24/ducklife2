@@ -16,15 +16,19 @@
 {% block content %}
 {% load staticfiles %}
 
-<div class="goods content">
+<div class="goods content" style="background: #cdd4b4;">
+    <div class="logo" style="background-color:#fff; width: 100%;">
+        <img src="{% static "images/ok.png" %}">
+        <img src="{% static "images/1.png" %}">
+    </div>
     {% for item in products %}
-    <div class="items">
+    <div class="items" data-gid="{{item.uid}}">
         <div class="image">
         <img src="{{item.picture.url}}">
         </div>
         <p class="name">{{item.name}}</p>
         <p class="price">￥{{item.price}}</p>
-        <button class="btn detail" type="button" data-gid="{{item.uid}}"><a href="javascript:void(0);">详情</a></button>
+        <div class="detail" type="button" data-gid="{{item.uid}}"><p>&nbsp;&nbsp;&nbsp;&nbsp;{{item.description}}</p></div>
     </div>
     {% endfor %}
 </div>

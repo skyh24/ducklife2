@@ -4,13 +4,13 @@
 }
 
 .items {
-    width: 45%;
+    width: 95%;
     height: auto;
     display: inline-block;
     /*border: 2px solid #e1e900;*/
     margin: 2%;
     background: white;
-    text-align: center;
+    /*text-align: center;*/
     padding: 1%;
     overflow: hidden;
 }
