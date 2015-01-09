@@ -1,0 +1,66 @@
+.content {
+   background: #00e2a7;
+   padding-bottom: 80px;
+}
+
+.selected {
+	width: 96%;
+	height: auto;
+	margin: 0 auto;
+}
+
+.m_title {
+	background: #f6ffca;
+	padding: 1%;
+}
+
+.sgoods {
+	display: block;
+	border-bottom: 1px #f6ffca solid;
+}
+
+.sgoods input {
+	display: inline-block;
+	width: 60%;
+}
+
+.selected img {
+	width: 35%;
+}
+
+.omit {
+	width: 50%;
+	display: inline-block;
+	margin: 0 0 0 2%;
+}
+
+.buyer_info {
+	width: 96%;
+	height: auto;
+	margin: 0 auto;
+	background: white;
+}
+
+.buyer_info h4 {
+	background: #f6ffca;
+	padding: 2%;
+}
+
+.submit {
+	height: 50px;
+	padding: 2%;
+}
+
+.submit button {
+	font-size: 25px;
+	float: right;
+	margin-right: 10px;
+}
+
+.table-view {
+	margin-bottom: 0;
+}
+
+.orderid{
+	display:none;
+}

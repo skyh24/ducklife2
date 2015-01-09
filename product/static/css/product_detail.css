@@ -1,0 +1,58 @@
+.content {
+   background: #00e2a7;
+   padding-bottom: 80px;
+}
+
+.item {
+	background: white;
+	padding: 1%;
+	box-shadow: 0 0 4px 0;
+}
+
+.item p{
+	font-size: 20px;
+}
+
+.item img {
+	width: 100%;
+}
+
+.buy {
+	background: white;
+	width: 98%;
+	height: auto;
+	margin: 0 auto;
+	margin-top: 10px;
+	padding: 1%;
+	/*box-shadow: 0 0 4px 0;*/
+}
+
+.buy input {
+	width: 40%;
+	margin:0 0 10px 2%;
+	border: gray 1px solid;
+}
+
+.buy button {
+	font-size: 15px;
+	display: inline-block;
+	margin: 0 0 10px 2%;
+}
+
+.buy .change {
+	width: 20%;
+}
+
+.detail {
+	width: 98%;
+	height: auto;
+	margin: 0 auto;
+	margin-top: 10px;
+	background: white;
+	padding: 2%;
+	/*box-shadow: 0 0 4px 0;*/
+}
+
+.detail img {
+	width: 100%;
+}

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}鸭子滋补品{% endblock %}
+{% block importcss %}
+<link href="/static/css/order.css" rel="stylesheet">
+{% endblock %}
+
+{% block importjs %}
+<script type="text/javascript" src="/static/js/order.js"></script>
+{% endblock %}
+
+{% block header %}
+    <h1 class="title">未支付的订单</h1>
+{% endblock %}
+
+{% block content %}
+{% load staticfiles %}
+
+<div class="content">
+{% if orders %}
+{% for item in orders %}
+  <div class='orderform'>
+    <div class="selected">
+        <ul class="table-view">
+            <li class="m_title">订单{{item.id}}</li>
+            {% for pro in item.items %}
+            <li class="table-view-cell sgoods">
+                <div class="omit">
+                    <span>{{pro.product.name}}</span>
+                    <span>￥{{pro.product.price}} x <span class="badge badge-primary">{{pro.number}}</span></span>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <form method="post" action="/pay/payment/">
+    {% csrf_token %}
+        <div class="buyer_info">
+            <h4>收货人信息</h4>
+            <div class="input-row">
+                <label>收货人</label>
+                <input type="text" name="name" placeholder="" value="{{item.name}}" disabled>
+            </div>
+            <div class="input-row">
+                <label>手机号码</label>
+                <input type="tel" name="phone" placeholder="" value="{{item.phone}}" disabled>
+            </div>
+            <div class="input-row">
+                <label>详细地址</label>
+                <input type="text" name="address" placeholder="" value="{{item.address}}" disabled>
+            </div>
+            <div class="input-row">
+                <label>总价</label>
+                <input type="text" name="tprice" value="{{item.price}}" disabled class="total" >
+            </div>
+            <input name="orderid" value="{{item.id}}" class="orderid"/>
+            <div class="submit">
+                <button type="submit" class="btn btn-positive">确认支付</button>
+                <button type="button" class="btn btn-negative cancelOrder" data-oid="{{item.id}}">取消订单</button>
+            </div>
+        </div>
+    </form>
+  </div>
+ {% endfor %}
+{% endif %}
+</div>
+{% endblock %}

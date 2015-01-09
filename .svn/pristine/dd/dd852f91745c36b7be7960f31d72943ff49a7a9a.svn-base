@@ -1,0 +1,25 @@
+# -*- coding: utf-8 -*-
+from django.shortcuts import render_to_response
+from django.http import HttpResponse, Http404, HttpResponseRedirect
+
+from weixin import *
+
+import settings
+
+def get_code(request):
+    next = request.GET.get('next', '/')
+    if 'openid' in request.session:
+        return HttpResponseRedirect(next)
+    return HttpResponseRedirect(
+        getCode(settings.APPID, '/openid/?next=' + next))
+
+def get_openid(request):
+    code = request.GET.get('code', None)
+    next = request.GET.get('next', None)
+    if 'openid' in request.session:
+        return HttpResponseRedirect(next)
+    if code and next:
+        openid = getOpenid(settings.APPID,
+            settings.APPSECRET, code)
+        request.session['openid'] = openid
+    return HttpResponseRedirect(next)

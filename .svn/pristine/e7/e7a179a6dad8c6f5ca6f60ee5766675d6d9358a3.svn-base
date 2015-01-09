@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}鸭子滋补品{% endblock %}
+{% block importcss %}
+<link href="/static/css/cart.css" rel="stylesheet">
+{% endblock %}
+
+{% block importjs %}
+<script type="text/javascript" src="/static/js/cart.js"></script>
+{% endblock %}
+
+{% block header %}
+    <h1 class="title">我的购物车</h1>
+{% endblock %}
+
+{% block content %}
+{% load staticfiles %}
+
+<div class="content">
+    <div class="selected">
+        <ul class="table-view">
+            <li class="m_title">已选购的商品</li>
+            {% if products %}
+            {% for item in products %}
+            <li class="table-view-cell sgoods">
+                <img src="{{item.picture.url}}">
+                <div class="omit">
+                    <span>{{item.name}}</span>
+                    <span>￥{{item.price}}<input value="{{item.number}}"/></span>
+                </div>
+                <div class="icondelet">
+                    <span class="media-object pull-right icon icon-trash" data-pid="{{item.uid}}" data-num="{{item.number}}"></span>
+                </div>
+            </li>
+            {% endfor %}
+            {% else %}
+            <li class="table-view-cell">
+                <h4>你还没有选购任何商品。</h4>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+    <div class="buyer_info">
+        <h4>填写收货人信息</h4>
+        <form class="input-group" method="post" action="/order/create/">
+        {% csrf_token %}
+            <div class="input-row">
+                <label>收货人</label>
+                <input type="text" name="name" placeholder="">
+            </div>
+            <div class="input-row">
+                <label>手机号码</label>
+                <input type="tel" name="phone" placeholder="">
+            </div>
+            <div class="input-row">
+                <label>详细地址</label>
+                <input type="text" name="address" placeholder="">
+            </div>
+            <div class="input-row">
+                <label>总价</label>
+                <input type="text" value="{{price}}" disabled id="total">
+            </div>
+            <div id="submit">
+            {% if products %}
+                <button type="submit" class="btn btn-positive" id="check">提交</button>
+            {% else %}
+                <button type="submit" class="btn btn-positive" disabled>提交</button>
+            {% endif %}
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

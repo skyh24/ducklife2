@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#categoryList" href="#category{{category.id}}">
+                {{category.name}}
+            </a>
+        </h4>
+    </div>
+    <div id="category{{category.id}}" class="panel-collapse collapse">
+        <div class="panel-body">
+            <button data-id="{{category.id}}" class="deleteButton btn btn-danger">删除</button>
+            <h3>该目录下的商品有:</h3>
+        </div>
+        <table class="table">
+            <tr>
+                <th>商品编号</th>
+                <th>商品名称</th>
+                <th>商品价格</th>
+            </tr>
+            {% for item in category.products %}
+            <tr>
+                <td>{{item.uid}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.price}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>

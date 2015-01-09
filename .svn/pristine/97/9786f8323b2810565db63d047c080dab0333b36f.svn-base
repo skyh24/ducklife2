@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- Sets initial viewport load and disables zooming  -->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+
+    <!-- Makes your prototype chrome-less once bookmarked to your phone's home screen -->
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="content-script-type" content="text/javascript">
+    
+     <!-- Include the compiled Ratchet CSS  -->
+    <link href="/static/ratchet/css/ratchet.css" rel="stylesheet">
+    <link href="/static/css/base.css" rel="stylesheet">
+
+    <!-- Include the compiled Ratchet JS  -->
+    <script src="/static/ratchet/js/ratchet.js"></script>
+    <script type="text/javascript" src="/static/jquery/jquery-2.0.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/base.js"></script>
+    {% block importjs %}{% endblock %}
+  </head>
+  <body>
+    {% block importcss %}{% endblock %}
+    <div id="popover" class="popover">
+      <ul class="table-view">
+      {% for listitem in categorys %}
+        <li class="table-view-cell"><a href="javascript:void(0);" class="product" data-pid="{{listitem.id}}">{{listitem.name}}</a></li>
+      {% endfor %}
+      </ul>
+    </div>
+    <div id="payorder" class="popover">
+      <ul class="table-view">
+        <li class="table-view-cell"><a href="javascript:void(0);" class="notpay">未支付的订单</a></li>
+        <li class="table-view-cell"><a href="javascript:void(0);" class="havepay">已支付的订单</a></li>
+        <li class="table-view-cell"><a href="javascript:void(0);" class="havecancel">已取消的订单</a></li>
+      </ul>
+    </div>
+    <header class="bar bar-nav">
+      {% block header %}{% endblock %}
+    </header>
+    {% block content %}{% endblock %}
+    <nav class="bar bar-tab">
+      <a class="tab-item index" href="javascript:void(0);">
+        <span class="icon icon-home"></span>
+        <span class="tab-label">首页</span>
+      </a>
+      <a class="tab-item" href="#popover">
+        <span class="icon icon-list"></span>
+        <span class="tab-label">商品分类</span>
+      </a>
+      <a class="tab-item scar" href="javascript:void(0);">
+        <span class="icon icon-person"></span>
+        <span class="tab-label">购物车</span>
+      </a>
+      <a class="tab-item order" href="#payorder">
+        <span class="icon icon-compose"></span>
+        <span class="tab-label">订单</span>
+      </a>
+    </nav>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}鸭子滋补品{% endblock %}
+{% block importcss %}
+<link href="/static/css/product.css" rel="stylesheet">
+{% endblock %}
+
+{% block importjs %}
+<script type="text/javascript" src="/static/js/product.js"></script>
+{% endblock %}
+
+{% block header %}
+    <h1 class="title">{{categoryName}}</h1>
+{% endblock %}
+
+{% block content %}
+{% load staticfiles %}
+
+<div class="goods content">
+    {% for item in products %}
+    <div class="items">
+        <img src="{{item.picture.url}}">
+        <p class="name">{{item.name}}</p>
+        <p class="price">￥{{item.price}}</p>
+        <button class="btn btn-xs detail" type="button" data-gid="{{item.uid}}">详情</button>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

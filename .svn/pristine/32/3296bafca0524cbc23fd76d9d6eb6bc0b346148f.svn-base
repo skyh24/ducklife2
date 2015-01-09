@@ -1,0 +1,28 @@
+.content {
+   background: #00e2a7;
+   padding-bottom: 50px;
+}
+
+.items {
+    width: 45%;
+    height: auto;
+    display: inline-block;
+    /*border: 2px solid #e1e900;*/
+    margin: 2%;
+    background: white;
+    text-align: center;
+    padding: 1%;
+}
+
+.items img {
+    height: 150px;
+    width: 100%;
+
+}
+
+.items p {
+    width: 100%;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
+}
