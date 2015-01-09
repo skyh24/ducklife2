@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block header %}
-    <h1 class="title">商品详情</h1>
+    <h1 class="title">确认订单</h1>
 {% endblock %}
 
 {% block content %}
@@ -31,6 +31,7 @@
         <button class="btn btn-positive btn-outlined" id="add_to_cart" data-pid="{{product.uid}}">加入购物车</button>
         <button class="btn btn-negative btn-outlined" id="buy_it_now">立即购买</button>-->
     </div>
+
     <form method="post" action="/pay/payment/">
     {% csrf_token %}
         <div class="buyer_info">
@@ -49,9 +50,9 @@
             </div>
             <div class="input-row">
                 <label>总价</label>
-                <input type="text" name="tprice" value="" disabled class="total" >
+                <input id="price" type="text" name="price" value="{{product.price}}" disabled class="total" >
             </div>
-            <input name="orderid" value="" class="orderid"/>
+            <input type="hidden" name="orderid" value="" class="orderid"/>
             <div class="submit">
                 <button id="add_to_cart" type="submit" class="btn btn-positive">确认订单</button>   
             </div>

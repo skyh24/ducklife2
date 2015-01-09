@@ -14,7 +14,7 @@ import json
 def index_view(request, templateName):
     # if 'openid' not in request.session:
     #    return HttpResponseRedirect('/code/?next=/')
-    products = Product.objects.all().order_by('-sell')[:5]
+    products = Product.objects.all()[:5]
     categorys = Category.objects.all()
     return render_to_response(templateName, {
         'products' : products,
@@ -29,7 +29,7 @@ def product_view(request, c_id, templateName):
     products = Product.objects.filter(category = category)
     categorys = Category.objects.all()
     return render_to_response(templateName, {
-        'products' : products,
+         'products' : products,
          'categorys' : categorys,
          'categoryName' : categoryName,
         })
@@ -41,7 +41,7 @@ def product_detail_view(request, p_id, templateName):
     categorys = Category.objects.all()
     return render_to_response(templateName, {
         'product' : product,
-         'categorys' : categorys,
+        'categorys' : categorys,
         })
 
 def cart_view(request, templateName):
@@ -85,12 +85,12 @@ def add_product(request):
         number = request.POST.get('number', None)
         del request.session['cart']
         cart = get_cart(request)
-        print "add_product+++", cart
+        print "add_product+++", cart ###
         if productID:
             product = Product.objects.get(uid = productID)
             cart.add(product,number)
             request.session['cart'] = cart
-            print "yes+++",  request.session['cart']
+            print "yes+++",  request.session['cart'] ###
             success = True
     return HttpResponse(json.dumps({
         'success' : success,
