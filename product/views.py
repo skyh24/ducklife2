@@ -12,8 +12,8 @@ from django.template import RequestContext
 import json
 
 def index_view(request, templateName):
-    if 'openid' not in request.session:
-        return HttpResponseRedirect('/code/?next=/')
+    # if 'openid' not in request.session:
+    #    return HttpResponseRedirect('/code/?next=/')
     products = Product.objects.all().order_by('-sell')[:5]
     categorys = Category.objects.all()
     return render_to_response(templateName, {
@@ -47,9 +47,8 @@ def product_detail_view(request, p_id, templateName):
 def cart_view(request, templateName):
     # if 'openid' not in request.session:
     #     return HttpResponseRedirect('/code/?next=/cart/')
-    di = get_cart(request)
-    cart = di[1]
-    print "cart_view", cart
+    cart = get_cart(request)
+    #print "cart_view", cart
     products = []
     for key, value in cart.items.items():
         item = Product.objects.get(uid = key)
@@ -86,12 +85,11 @@ def add_product(request):
         number = request.POST.get('number', None)
         #del request.session['cart']
         cart = get_cart(request)
-	print "1yess+++", cart
+	#print "1yess+++", cart
         if productID:
             product = Product.objects.get(uid = productID)
             cart.add(product,number)
-            di={1:cart}
-            request.session['cart'] = di
+            request.session['cart'] = cart
             print "yess+++",  cart
             success = True
     return HttpResponse(json.dumps({
