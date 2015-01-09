@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}鸭子滋补品{% endblock %}
+{% block title %}肉小鲜{% endblock %}
 
 {% block importcss %}
 <link href="/static/css/index.css" rel="stylesheet">
@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block header %}
-    <h1 class="title">热卖</h1>
+    <h1 class="title">商品列表</h1>
 {% endblock %}
 
 {% block content %}
@@ -18,16 +18,15 @@
 
 <div class="goods content" style="background: #cdd4b4;">
     <div class="logo" style="background-color:#fff; width: 100%;">
-        <img src="{% static "images/ok.png" %}">
-        <img src="{% static "images/1.png" %}">
+        <img src="{% static "images/ok.png" %}"  style="margin:0 auto">
+        <img src="{% static "images/1.png" %}" style="width:100%">
     </div>
     {% for item in products %}
     <div class="items" data-gid="{{item.uid}}">
         <div class="image">
         <img src="{{item.picture.url}}">
         </div>
-        <p class="name">{{item.name}}</p>
-        <p class="price">￥{{item.price}}</p>
+
         <div class="detail" type="button" data-gid="{{item.uid}}"><p>&nbsp;&nbsp;&nbsp;&nbsp;{{item.description}}</p></div>
     </div>
     {% endfor %}
