@@ -2,13 +2,17 @@ $(function () {
 	$('#plus').click(function () {
 		var num = $('#num').val();
 		num++;
-		$('#num').val(num).trigger('change');
+		$('#num').val(num);
+		$('#number').val(num);
+        $('#price').val({{product.price}} * num);
 	});
 
 	$('#sub').click(function () {
 		var num = $('#num').val();
 		if (num >= 1) num--;
-		$('#num').val(num).trigger('change');
+		$('#num').val(num);
+		$('#number').val(num);
+        $('#price').val({{product.price}} * num);
 	});
   
   //url跳转

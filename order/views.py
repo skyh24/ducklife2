@@ -101,7 +101,7 @@ def create_order(request):
         request.session['orderid'] =  order_id
         return HttpResponseRedirect('/order/')
     else:
-        #form = OrderForm()
+        form = OrderForm()
     print "why not+++++++++++++++++"
     return HttpResponseRedirect('/order/')
 
