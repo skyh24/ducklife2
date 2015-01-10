@@ -1,7 +1,7 @@
 $(function(){
 	$('.cancelOrder').click(function(){
 		var depen = 0;
-
+		oid=$(this).attr('data-oid')
 		var cb = function(data) {
 			      	if (data['success']) {
 			      		depen = 1;

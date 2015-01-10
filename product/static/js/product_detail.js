@@ -62,7 +62,7 @@ $(function () {
 			alert("请填好收货人地址。");
 			event.preventDefault();
 		}
-		else if(!partten.test(inputString)) ｛
+		else if(!partten.test(phone)) ｛
 			alert("请填好合法手机号码，11位数");
 			event.preventDefault();
 		｝
