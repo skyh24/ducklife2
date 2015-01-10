@@ -94,6 +94,7 @@ def create_order(request):
             order = order,
             product = product,
             number = number,
+            send = send,
             )
         # cart.clear()
         # request.session['cart'] = cart
