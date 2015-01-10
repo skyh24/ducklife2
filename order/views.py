@@ -68,38 +68,40 @@ def create_order(request):
         for char in openid:
             order_id += ord(char)
         #cart = request.session['cart']
+        uid = request.POST.get('uid')
         number = request.POST.get('number')
         name = request.POST.get('name')
-        print name, number
-        if form.is_valid():
-            print "create_order+++  2"
-            clean = form.cleaned_data
-            print "create_order+++", order_id
-            print request.session['openid'], clean['name'], clean['phone'], \
-                  clean['address'], clean['price'], clean['uid'], \
-                  clean['number'], clean['send']
-            order = Order.objects.create(
-                id = int(datetime.datetime.now().strftime('%Y%m%d%H%M%S') + str(order_id)),
-                openid = request.session['openid'],
-                name = clean['name'],
-                phone = clean['phone'],
-                address = clean['address'],
-                price = clean['price'],
-                )
-            # for key, value in cart.items.items():
-            key = clean['uid']
-            product = Product.objects.get(uid = key)
-            OrderItem.objects.create(
-                order = order,
-                product = product,
-                number = clean['number'],
-                )
-            # cart.clear()
-            # request.session['cart'] = cart
-            request.session['orderid'] =  order_id
-            return HttpResponseRedirect('/order/')
+        phone = request.POST.get('phone')
+        addr = request.POST.get('address')
+        price = request.POST.get('price')
+        send = request.POST.get('send')
+        print "create_order+++  2", order_id
+        print uid, number, name, phone, addr, price, send
+        # if form.is_valid():
+        # clean = form.cleaned_data
+
+        order = Order.objects.create(
+            id = int(datetime.datetime.now().strftime('%Y%m%d%H%M%S') + str(order_id)),
+            openid = request.session['openid'],
+            name = name,
+            phone = phone,
+            address = addr,
+            price = price,
+            )
+        # for key, value in cart.items.items():
+        key = uid
+        product = Product.objects.get(uid = key)
+        OrderItem.objects.create(
+            order = order,
+            product = product,
+            number = number,
+            )
+        # cart.clear()
+        # request.session['cart'] = cart
+        request.session['orderid'] =  order_id
+        return HttpResponseRedirect('/order/')
     else:
-        form = OrderForm()
+        #form = OrderForm()
     print "why not+++++++++++++++++"
     return HttpResponseRedirect('/order/')
 
