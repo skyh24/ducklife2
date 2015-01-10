@@ -1,5 +1,6 @@
 $(function() {
     $("#indexPage").addClass("liActive");
+    $("#orderBox").fadeIn();
     $("#orderBox").hide();
     $("#productBox").hide();
     $("#categoryBox").hide();

@@ -23,7 +23,9 @@ def order_view(request, templateName):
     # if 'openid' not in request.session:
     #     return HttpResponseRedirect('/')
     openid = '123456789'
-    orders = Order.objects.filter(openid = openid, isPaid = False, isCancel = False).order_by('-datetime')
+    # orders = Order.objects.filter(openid = openid, isPaid = False, isCancel = False).order_by('-datetime')
+    orders = Order.objects.filter(openid = openid, isCancel = False).order_by('-datetime')
+
     for order in orders:
         order.items = OrderItem.objects.filter(order = order)
     return render_to_response(templateName, {
@@ -86,6 +88,7 @@ def create_order(request):
             phone = phone,
             address = addr,
             price = price,
+            isPaid = 1,
             )
         # for key, value in cart.items.items():
         key = uid
