@@ -20,9 +20,9 @@ def get_category():
     return categorys
 
 def order_view(request, templateName):
-    # if 'openid' not in request.session:
-    #     return HttpResponseRedirect('/')
-    openid = '123456789'
+    if 'openid' not in request.session:
+        return HttpResponseRedirect('/')
+    # openid = '123456789'
     # orders = Order.objects.filter(openid = openid, isPaid = False, isCancel = False).order_by('-datetime')
     orders = Order.objects.filter(openid = openid, isCancel = False).order_by('-datetime')
 
@@ -58,9 +58,9 @@ def havecancel_view(request, templateName):
         })
 
 def create_order(request):
-    # if 'openid' not in request.session:
-    #     return HttpResponseRedirect('/')
-    request.session['openid'] = '123456789'
+    if 'openid' not in request.session:
+        return HttpResponseRedirect('/')
+    #request.session['openid'] = '123456789'
     #print request.method
     if request.method == 'POST':
         #form = OrderForm(request.POST)

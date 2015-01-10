@@ -12,14 +12,17 @@ from django.template import RequestContext
 import json
 
 def index_view(request, templateName):
-    # if 'openid' not in request.session:
-    #    return HttpResponseRedirect('/code/?next=/')
+    if 'openid' not in request.session:
+        return HttpResponseRedirect('/code/?next=/')
     products = Product.objects.all()[:5]
     categorys = Category.objects.all()
     return render_to_response(templateName, {
         'products' : products,
         'categorys' : categorys,
         })
+
+def kefu_view(request, templateName):
+    return render_to_response(templateName, {})
 
 def product_view(request, c_id, templateName):
     # if 'openid' not in request.session:
@@ -35,8 +38,8 @@ def product_view(request, c_id, templateName):
         })
 
 def product_detail_view(request, p_id, templateName):
-    # if 'openid' not in request.session:
-    #     return HttpResponseRedirect('/code/?next=/product/' + p_id + '/')
+    if 'openid' not in request.session:
+        return HttpResponseRedirect('/code/?next=/product/' + p_id + '/')
     product = Product.objects.get(uid = p_id)
     categorys = Category.objects.all()
     return render_to_response(templateName, {

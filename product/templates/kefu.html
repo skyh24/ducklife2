@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}肉小鲜{% endblock %}
+{% block importcss %}
+<link href="/static/css/product_detail.css" rel="stylesheet">
+{% endblock %}
+
+{% block importjs %}
+<script type="text/javascript" src="/static/js/product_detail.js"></script>
+{% endblock %}
+
+{% block header %}
+    <h1 class="title" style="color:#fff;">小鲜客服</h1>
+{% endblock %}
+
+{% block content %}
+{% load staticfiles %}
+<div class="content" style="background:white;">
+  <div class="item">
+   <p style="margin:0 auto;text-align:center;">小主有任何疑问都可以拨打服务热线，客服小鲜将真诚耐心的为您服务。<br />服务热线: 4000020864</p> 
+  </div>
+</div>
+{% endblock %}
