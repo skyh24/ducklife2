@@ -2,13 +2,13 @@ $(function () {
 	$('#plus').click(function () {
 		var num = $('#num').val();
 		num++;
-		$('#num').val(num);
+		$('#num').val(num).change();
 	});
 
 	$('#sub').click(function () {
 		var num = $('#num').val();
 		if (num >= 1) num--;
-		$('#num').val(num);
+		$('#num').val(num).change();
 	});
   
   //url跳转
