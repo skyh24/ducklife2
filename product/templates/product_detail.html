@@ -50,9 +50,16 @@
                 <label>总价</label>
                 <input id="price" type="text" name="price" value="{{product.price}}" disabled class="total" >
             </div>
-            <input type="hidden" name="orderid" value="" class="orderid"/>
+            <input type="hidden" value="{{product.uid}}" id="uid" name="uid"/>
+            <input type="hidden" value="1" id="number" name="number"/>
+            <input type="hidden" value="1" id="send" name="send"/>
+            <!--<input type="hidden" name="orderid" value="" class="orderid"/>-->
+            <button class="send btn btn-primary" send="1">周五送</button>
+            <button class="send btn btn-positive btn-outlined" send="2">周六送</button>
+            <button class="send btn btn-negative btn-outlined" send="3">周日送</button>
+
             <div class="submit">
-                <button id="add_to_cart" type="submit" class="btn btn-positive">确认订单</button>   
+                <button id="submit" type="submit" class="btn btn-positive" data-pid="{{product.uid}}">确认订单</button>   
             </div>
         </div>
     </form>

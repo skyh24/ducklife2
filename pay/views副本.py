@@ -21,15 +21,8 @@ def payConfirm_view(request, templateName):
     openid = request.session['openid']
 
     if request.method == "POST":
-        #orderid = request.POST.get('orderid')
-        uid = request.POST.get('uid')
-        number = request.POST.get('number')
-        name = request.POST.get('name')
-        phone = request.POST.get('phone')
-        addr = request.POST.get('address')
-        send = request.POST.get('send')
-        price = request.POST.get('price')
-        #order = Order.objects.get(id=orderid)
+        orderid = request.POST.get('orderid')
+        order = Order.objects.get(id=orderid)
         totalPrice = order.price
         if order.openid != openid:
             raise Http404()
