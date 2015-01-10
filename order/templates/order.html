@@ -18,11 +18,11 @@
 <div class="content" style="background: #cdd4b4;">
 <div class="logo" style="background-color:#fff; width: 100%;">
         <img src="{% static "images/ok.png" %}"  style="display:block; margin:0 auto">
-        <img src="{% static "images/1.png" %}" style="width:100%">
+        <img src="{% static "images/3.png" %}" style="width:100%">
     </div>
 {% if orders %}
 {% for item in orders %}
-  <div class='orderform' style="margin-bottom:10px;">
+  <div d="{{item.id}}" class='orderform' style="margin-bottom:10px;">
     <div class="selected">
         <ul class="table-view">
             <li class="m_title">订单{{item.id}}</li>
@@ -31,6 +31,8 @@
                 <div class="omit">
                     <span>{{pro.product.name}}</span>
                     <span>￥{{pro.product.price}} x <span class="badge badge-primary" style="background-color: #f00; font-size: 15px;">{{pro.number}}</span></span>
+                    <br>
+                    <span>暂时只支持货到付款，运送时间: &nbsp;{{pro.send}}</span>
                 </div>
             </li>
             {% endfor %}

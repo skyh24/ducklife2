@@ -11,7 +11,8 @@ $(function(){
 
 		var de = function() {
 			if (depen == 1)
-			   $('.orderform').slideUp('slow',function(){alert("订单已取消");});
+				$('#'+oid).slideUp('slow',function(){alert("订单已取消");});
+			   //$('.orderform').slideUp('slow',function(){alert("订单已取消");});
 	    }
 
 		$.post('/order/cancel/',
