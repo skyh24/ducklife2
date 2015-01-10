@@ -65,13 +65,12 @@
 
 #submit {
 	font-size: 25px;
-	float: right;
 	height: 50px;
 	padding: 2%;
 }
 
 .send {
-	width: 25%;
+	width: 30%;
 	font-size: 15px;
 	display: inline-block;
 	margin: 0 0 10px 2%;

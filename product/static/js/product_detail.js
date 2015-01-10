@@ -35,7 +35,7 @@ $(function () {
   		$('.send').addClass("btn-outlined");
   		$(this).removeClass("btn-outlined");
   		send = $(this).attr('send');
-  		$('#send').val() = send
+  		$('#send').val(send);
   	});
 
 });
