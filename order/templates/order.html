@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}鸭子滋补品{% endblock %}
+{% block title %}肉小鲜{% endblock %}
 {% block importcss %}
 <link href="/static/css/order.css" rel="stylesheet">
 {% endblock %}
@@ -9,16 +9,20 @@
 {% endblock %}
 
 {% block header %}
-    <h1 class="title">未支付的订单</h1>
+    <h1 class="title">确认订单</h1>
 {% endblock %}
 
 {% block content %}
 {% load staticfiles %}
 
-<div class="content">
+<div class="content" style="background: #cdd4b4;">
+<div class="logo" style="background-color:#fff; width: 100%;">
+        <img src="{% static "images/ok.png" %}"  style="display:block; margin:0 auto">
+        <img src="{% static "images/1.png" %}" style="width:100%">
+    </div>
 {% if orders %}
 {% for item in orders %}
-  <div class='orderform'>
+  <div class='orderform' style="margin-bottom:10px;">
     <div class="selected">
         <ul class="table-view">
             <li class="m_title">订单{{item.id}}</li>
@@ -26,7 +30,7 @@
             <li class="table-view-cell sgoods">
                 <div class="omit">
                     <span>{{pro.product.name}}</span>
-                    <span>￥{{pro.product.price}} x <span class="badge badge-primary">{{pro.number}}</span></span>
+                    <span>￥{{pro.product.price}} x <span class="badge badge-primary" style="background-color: #f00; font-size: 15px;">{{pro.number}}</span></span>
                 </div>
             </li>
             {% endfor %}
@@ -54,7 +58,7 @@
             </div>
             <input name="orderid" value="{{item.id}}" class="orderid"/>
             <div class="submit">
-                <button type="submit" class="btn btn-positive">确认支付</button>
+                <!--<button type="submit" class="btn btn-positive">确认支付</button>-->
                 <button type="button" class="btn btn-negative cancelOrder" data-oid="{{item.id}}">取消订单</button>
             </div>
         </div>

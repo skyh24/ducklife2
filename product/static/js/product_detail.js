@@ -4,7 +4,7 @@ $(function () {
 		num++;
 		$('#num').val(num);
 		$('#number').val(num);
-		money = $('#num').attr(money);
+		money = $('#num').attr('money');
 		$('#price').val(money * num);     
 	});
 
@@ -13,7 +13,7 @@ $(function () {
 		if (num >= 1) num--;
 		$('#num').val(num);
 		$('#number').val(num);
-		money = $('#num').attr(money);
+		money = $('#num').attr('money');
 		$('#price').val(money * num);  
 	});
   
