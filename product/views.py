@@ -42,7 +42,7 @@ def product_detail_view(request, p_id, templateName):
     return render_to_response(templateName, {
         'product' : product,
         'categorys' : categorys,
-        })
+        }, context_instance = RequestContext(request))
 
 def cart_view(request, templateName):
     # if 'openid' not in request.session:

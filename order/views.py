@@ -55,6 +55,7 @@ def havecancel_view(request, templateName):
         'categorys' : get_category(),
         })
 
+@csrf_exempt
 def create_order(request):
     # if 'openid' not in request.session:
     #     return HttpResponseRedirect('/')
@@ -90,6 +91,7 @@ def create_order(request):
                 )
             # cart.clear()
             # request.session['cart'] = cart
+            request.session['orderid'] =  order_id
             return HttpResponseRedirect('/order/')
     else:
         form = OrderForm()
