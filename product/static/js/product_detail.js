@@ -38,5 +38,26 @@ $(function () {
   		$('#send').val(send);
   	});
 
+  	//检测是否填好了表单
+	$('#check').click(function(event){
+		var name = $("[name='name']").val();
+		var phone = $("[name='phone']").val();
+		var address = $("[name='address']").val();
+		if(!name) {
+			alert("请填好收货人姓名。");
+			event.preventDefault();
+		}
+		else if (!phone) {
+			alert("请填好收货人手机。");
+			event.preventDefault();
+		}
+		else if (!address) {
+			alert("请填好收货人地址。");
+			event.preventDefault();
+		}
+		else {
+			return;
+		}
+	});
 });
 

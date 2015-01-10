@@ -55,12 +55,13 @@ def havecancel_view(request, templateName):
         'categorys' : get_category(),
         })
 
-@csrf_exempt
 def create_order(request):
     # if 'openid' not in request.session:
     #     return HttpResponseRedirect('/')
     request.session['openid'] = '123456789'
+    print request.method
     if request.method == 'POST':
+        print "haha create_order+++   1"
         form = OrderForm(request.POST)
         openid = request.session['openid']
         order_id = 0
@@ -68,6 +69,7 @@ def create_order(request):
             order_id += ord(char)
         #cart = request.session['cart']
         if form.is_valid():
+            print "create_order+++  2"
             clean = form.cleaned_data
             print "create_order+++", order_id
             print request.session['openid'], clean['name'], clean['phone'], \
@@ -96,10 +98,7 @@ def create_order(request):
     else:
         form = OrderForm()
     print "why not+++++++++++++++++"
-    return render_to_response(templateName, {
-        'form' : form,
-        'categorys' : get_category(),
-        })
+    return HttpResponseRedirect('/order/')
 
 @csrf_exempt
 def cancel_order(request):
