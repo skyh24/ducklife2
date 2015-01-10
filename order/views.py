@@ -59,15 +59,18 @@ def create_order(request):
     # if 'openid' not in request.session:
     #     return HttpResponseRedirect('/')
     request.session['openid'] = '123456789'
-    print request.method
+    #print request.method
     if request.method == 'POST':
         print "haha create_order+++   1"
-        form = OrderForm(request.POST)
+        #form = OrderForm(request.POST)
         openid = request.session['openid']
         order_id = 0
         for char in openid:
             order_id += ord(char)
         #cart = request.session['cart']
+        number = request.POST.get('number')
+        name = request.POST.get('name')
+        print name, number
         if form.is_valid():
             print "create_order+++  2"
             clean = form.cleaned_data
