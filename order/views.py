@@ -65,30 +65,35 @@ def create_order(request):
         order_id = 0
         for char in openid:
             order_id += ord(char)
-        cart = request.session['cart']
-        print "create_order+++", cart
-        if form.is_valid() and cart.empty() is not True:
+        #cart = request.session['cart']
+        if form.is_valid():
             clean = form.cleaned_data
+            print "create_order+++", order_id
+            print request.session['openid'], clean['name'], clean['phone'], \
+                  clean['address'], clean['price'], clean['uid'], \
+                  clean['number'], clean['send']
             order = Order.objects.create(
                 id = int(datetime.datetime.now().strftime('%Y%m%d%H%M%S') + str(order_id)),
                 openid = request.session['openid'],
                 name = clean['name'],
                 phone = clean['phone'],
                 address = clean['address'],
-                price = cart.total,
+                price = clean['price'],
                 )
-            for key, value in cart.items.items():
-                product = Product.objects.get(uid = key)
-                OrderItem.objects.create(
-                    order = order,
-                    product = product,
-                    number = value,
-                    )
-            cart.clear()
-            request.session['cart'] = cart
+            # for key, value in cart.items.items():
+            key = clean['uid']
+            product = Product.objects.get(uid = key)
+            OrderItem.objects.create(
+                order = order,
+                product = product,
+                number = clean['number'],
+                )
+            # cart.clear()
+            # request.session['cart'] = cart
             return HttpResponseRedirect('/order/')
     else:
         form = OrderForm()
+    print "why not+++++++++++++++++"
     return render_to_response(templateName, {
         'form' : form,
         'categorys' : get_category(),
