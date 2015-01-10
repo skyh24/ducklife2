@@ -22,7 +22,8 @@ def get_category():
 def order_view(request, templateName):
     if 'openid' not in request.session:
         return HttpResponseRedirect('/')
-    # openid = '123456789'
+    print request.session['openid']
+    openid = request.session['openid']
     # orders = Order.objects.filter(openid = openid, isPaid = False, isCancel = False).order_by('-datetime')
     orders = Order.objects.filter(openid = openid, isCancel = False).order_by('-datetime')
 
