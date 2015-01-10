@@ -61,7 +61,6 @@ def create_order(request):
     request.session['openid'] = '123456789'
     #print request.method
     if request.method == 'POST':
-        print "haha create_order+++   1"
         #form = OrderForm(request.POST)
         openid = request.session['openid']
         order_id = 0
@@ -75,7 +74,7 @@ def create_order(request):
         addr = request.POST.get('address')
         price = request.POST.get('price')
         send = request.POST.get('send')
-        print "create_order+++  2", order_id
+        print "create_order+++", order_id
         print uid, number, name, phone, addr, price, send
         # if form.is_valid():
         # clean = form.cleaned_data
