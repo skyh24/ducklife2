@@ -64,6 +64,12 @@
         </div>
     </form>
     </div>
-    
+    <script type="text/javascript">
+        $('#num').bind('input propertychange', function() {  
+            num = $('#num').val();
+            $('#number').val() = num;
+            $('#price').val() = {{product。price}} * num;
+        }
+    </script>
 </div>
 {% endblock %}
