@@ -67,6 +67,7 @@ $(function () {
 			event.preventDefault();
 		｝*/
 		else {
+			alert("您的订单已提交。")
 			return;
 		}
 	});
