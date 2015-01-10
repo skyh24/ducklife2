@@ -27,7 +27,7 @@
 	/*box-shadow: 0 0 4px 0;*/
 }
 
-.buy input {
+.buy #num {
 	width: 40%;
 	margin:0 0 10px 2%;
 	border: gray 1px solid;
