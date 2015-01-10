@@ -33,12 +33,6 @@
 	border: gray 1px solid;
 }
 
-.buy button {
-	font-size: 15px;
-	display: inline-block;
-	margin: 0 0 10px 2%;
-}
-
 .buy .change {
 	width: 20%;
 }
@@ -70,11 +64,15 @@
 }
 
 #submit {
+	font-size: 25px;
+	float: right;
 	height: 50px;
 	padding: 2%;
 }
 
-#submit button {
-	font-size: 25px;
-	float: right;
+.send {
+	width: 25%;
+	font-size: 15px;
+	display: inline-block;
+	margin: 0 0 10px 2%;
 }
