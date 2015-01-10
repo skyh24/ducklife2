@@ -56,3 +56,25 @@
 .detail img {
 	width: 100%;
 }
+
+.buyer_info {
+	width: 96%;
+	height: auto;
+	margin: 0 auto;
+	background: white;
+}
+
+.buyer_info h4 {
+	background: #f6ffca;
+	padding: 2%;
+}
+
+#submit {
+	height: 50px;
+	padding: 2%;
+}
+
+#submit button {
+	font-size: 25px;
+	float: right;
+}
