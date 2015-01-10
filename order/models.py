@@ -21,3 +21,4 @@ class OrderItem(models.Model):
     product = models.ForeignKey(Product)
     order = models.ForeignKey(Order)
     number = models.IntegerField(default = 0)
+    send = models.CharField(max_length = 16)

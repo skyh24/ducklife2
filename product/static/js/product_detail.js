@@ -4,7 +4,8 @@ $(function () {
 		num++;
 		$('#num').val(num);
 		$('#number').val(num);
-        $('#price').val({{product.price}} * num);
+		money = $('#num').attr(money);
+		$('#price').val(money * num);     
 	});
 
 	$('#sub').click(function () {
@@ -12,7 +13,8 @@ $(function () {
 		if (num >= 1) num--;
 		$('#num').val(num);
 		$('#number').val(num);
-        $('#price').val({{product.price}} * num);
+		money = $('#num').attr(money);
+		$('#price').val(money * num);  
 	});
   
   //url跳转
