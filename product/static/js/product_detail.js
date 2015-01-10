@@ -49,6 +49,7 @@ $(function () {
 		var name = $("[name='name']").val();
 		var phone = $("[name='phone']").val();
 		var address = $("[name='address']").val();
+		var partten = /^1[3,5,8]\d{9}$/;
 		if(!name) {
 			alert("请填好收货人姓名。");
 			event.preventDefault();
@@ -61,6 +62,10 @@ $(function () {
 			alert("请填好收货人地址。");
 			event.preventDefault();
 		}
+		else if(!partten.test(inputString)) ｛
+			alert("请填好合法手机号码，11位数");
+			event.preventDefault();
+		｝
 		else {
 			return;
 		}
