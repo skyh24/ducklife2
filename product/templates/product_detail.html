@@ -30,9 +30,6 @@
         <!--<button class="btn btn-primary btn-outlined"><a href="javascript:void(0);" class="cart">我的购物车</a></button>
         <button class="btn btn-positive btn-outlined" id="add_to_cart" data-pid="{{product.uid}}">加入购物车</button>
         <button class="btn btn-negative btn-outlined" id="buy_it_now">立即购买</button>-->
-    </div>
-    <div class="buyer_info">
-        <h4>填写收货人信息</h4>
     <form method="post" action="/pay/payment/">
     {% csrf_token %}
         <div class="buyer_info">
