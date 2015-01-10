@@ -83,6 +83,7 @@
                                                     <th>商品名称</th>
                                                     <th>商品单价</th>
                                                     <th>商品数量</th>
+                                                    <th>运送时间</th>
                                                 </tr>
                                                 {% for item in order.items %}
                                                 <tr>
@@ -90,6 +91,7 @@
                                                     <td>{{item.product.name}}</td>
                                                     <td>{{item.product.price}}</td>
                                                     <td>{{item.number}}</td>
+                                                    <td>{{item.send}}</td>
                                                 </tr>
                                                 {% endfor %}
                                             </table>
@@ -133,6 +135,7 @@
                                                     <th>商品名称</th>
                                                     <th>商品单价</th>
                                                     <th>商品数量</th>
+                                                    <th>运送时间</th>
                                                 </tr>
                                                 {% for item in order.items %}
                                                 <tr>
@@ -140,6 +143,7 @@
                                                     <td>{{item.product.name}}</td>
                                                     <td>{{item.product.price}}</td>
                                                     <td>{{item.number}}</td>
+                                                    <td>{{item.send}}</td>
                                                 </tr>
                                                 {% endfor %}
                                             </table>
@@ -181,6 +185,7 @@
                                                     <th>商品名称</th>
                                                     <th>商品单价</th>
                                                     <th>商品数量</th>
+                                                    <th>运送时间</th>
                                                 </tr>
                                                 {% for item in order.items %}
                                                 <tr>
@@ -188,6 +193,7 @@
                                                     <td>{{item.product.name}}</td>
                                                     <td>{{item.product.price}}</td>
                                                     <td>{{item.number}}</td>
+                                                    <td>{{item.send}}</td>
                                                 </tr>
                                                 {% endfor %}
                                             </table>
@@ -229,6 +235,7 @@
                                                     <th>商品名称</th>
                                                     <th>商品单价</th>
                                                     <th>商品数量</th>
+                                                    <th>运送时间</th>
                                                 </tr>
                                                 {% for item in order.items %}
                                                 <tr>
@@ -236,6 +243,7 @@
                                                     <td>{{item.product.name}}</td>
                                                     <td>{{item.product.price}}</td>
                                                     <td>{{item.number}}</td>
+                                                    <td>{{item.send}}</td>
                                                 </tr>
                                                 {% endfor %}
                                             </table>
