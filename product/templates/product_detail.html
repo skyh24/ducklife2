@@ -52,12 +52,12 @@
             </div>
             <input type="hidden" value="{{product.uid}}" id="uid" name="uid"/>
             <input type="hidden" value="1" id="number" name="number"/>
-            <input type="hidden" value="1" id="send" name="send"/>
+            <input type="hidden" value="周五递送" id="send" name="send"/>
             <!--<input type="hidden" name="orderid" value="" class="orderid"/>-->
             <div style="padding-top:10px;">
-            <div class="send btn btn-primary" send="1">周五递送</div>
-            <div class="send btn btn-positive btn-outlined" send="2">周六递送</div>
-            <div class="send btn btn-negative btn-outlined" send="3">周日递送</div>
+            <div class="send btn btn-primary">周五递送</div>
+            <div class="send btn btn-positive btn-outlined">周六递送</div>
+            <div class="send btn btn-negative btn-outlined">周日递送</div>
             </div>
             <div class="submit">
                 <button id="submit" type="submit" class="btn btn-positive" data-pid="{{product.uid}}">确认订单</button>   
@@ -69,7 +69,7 @@
     $(function () {
         $('#num').bind('input propertychange', function() {  
             num = $('#num').val();
-            $('#number').val() = num;
+            $('#number').val(num);
             $('#price').val() = {{product.price}} * num;
         });
     });
