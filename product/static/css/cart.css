@@ -54,11 +54,12 @@
 }
 
 #submit {
+	font-size: 25px;
+	float: right;
 	height: 50px;
 	padding: 2%;
 }
 
-#submit button {
-	font-size: 25px;
-	float: right;
+.send {
+	width: 25%;
 }
