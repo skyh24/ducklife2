@@ -89,7 +89,6 @@ def create_order(request):
             phone = phone,
             address = addr,
             price = price,
-            isPaid = 1,
             )
         # for key, value in cart.items.items():
         key = uid
