@@ -22,7 +22,25 @@ def index_view(request, templateName):
         })
 
 def kefu_view(request, templateName):
-    return render_to_response(templateName, {})
+    xmlstr = smart_str(request.body)
+    xml = ET.fromstring(xmlstr)
+
+    ToUserName = xml.find('ToUserName').text
+    FromUserName = xml.find('FromUserName').text
+    CreateTime = xml.find('CreateTime').text
+    MsgType = xml.find('MsgType').text
+    Content = xml.find('Content').text
+    MsgId = xml.find('MsgId').text
+    reply_xml = """<xml>
+       <ToUserName><![CDATA[%s]]></ToUserName>
+       <FromUserName><![CDATA[%s]]></FromUserName>
+       <CreateTime>%s</CreateTime>
+       <MsgType><![CDATA[text]]></MsgType>
+       <Content><![CDATA[%s]]></Content>
+       </xml>"""%(FromUserName,ToUserName,CreateTime,"小主有任何疑问都可以拨打服务热线，客服小鲜将真诚耐心的为您服务。服务热线: 4000020864")
+
+    return HttpResponse(reply_xml)
+    #return render_to_response(templateName, {})
 
 def product_view(request, c_id, templateName):
     # if 'openid' not in request.session:
