@@ -48,7 +48,7 @@ def responseMsg(request):
     CreateTime = xml.find('CreateTime').text
     MsgType = xml.find('MsgType').text
     #Content = xml.find('Content').text
-    MsgId = xml.find('MsgId').text
+    #MsgId = xml.find('MsgId').text
 
     if MsgType == 'text':
         Content = '小主有任何疑问都可以拨打服务热线，客服小鲜将真诚耐心的为您服务。服务热线: 4000020864'
