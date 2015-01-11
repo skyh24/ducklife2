@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render_to_response
-
+from django.utils.encoding import smart_str, smart_unicode 
 from product.models import Product, Category, Cart
 
 from django.contrib.auth.decorators import login_required
