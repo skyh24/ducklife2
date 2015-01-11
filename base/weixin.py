@@ -13,7 +13,7 @@ def accessInterface(request):
     if request.method == 'POST':
         response = HttpResponse(responseMsg(request),content_type="application/xml")
         return response
-    else
+    else:
         return "can not access"
 
 def checkSignature(request):
