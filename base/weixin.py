@@ -3,7 +3,8 @@ import urllib, urllib2
 import hashlib, json
 from django.http import HttpResponse
 from django.utils.encoding import smart_str, smart_unicode 
-import xml.etree.ElementTree as ET  
+import xml.etree.ElementTree as ET 
+from django.views.decorators.csrf import csrf_exempt 
 
 TOKEN = "xiaoxian"
 
