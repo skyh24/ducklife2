@@ -6,6 +6,7 @@ from product.models import Product, Category, Cart
 
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
+import xml.etree.ElementTree as ET 
 
 from django.template import RequestContext
 

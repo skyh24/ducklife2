@@ -50,15 +50,17 @@ def responseMsg(request):
     Content = xml.find('Content').text
     MsgId = xml.find('MsgId').text
     print "msg+++", Content
-    # if Content == '':
-    #     Content = '终于等到你了，小主，欢迎关注肉小鲜加入鲜客一族。试运营期间肉小鲜采用预购模式，小主可以选择周五，周六，周天任意一天由顺丰进行冷运宅配。全部食材都是在配送当天早上由宁夏盐池空运而来，在广州新鲜包装！为了让客户更加安心的体验肉小鲜产品，我们决定采用货到付款方式！小主满意后再收货。目前肉小鲜业务覆盖广州，深圳两地。'
+    if Content == '':
+        Content = '终于等到你了，小主，欢迎关注肉小鲜加入鲜客一族。试运营期间肉小鲜采用预购模式，小主可以选择周五，周六，周天任意一天由顺丰进行冷运宅配。全部食材都是在配送当天早上由宁夏盐池空运而来，在广州新鲜包装！为了让客户更加安心的体验肉小鲜产品，我们决定采用货到付款方式！小主满意后再收货。目前肉小鲜业务覆盖广州，深圳两地。'
+    else:
+        Content = "您好，您的反馈信息已收到，需要的话请留下联系电话，我们客服会进一步跟踪处理，我们的进步需要您的支持与鼓励^_^"
     reply_xml = """<xml>
        <ToUserName><![CDATA[%s]]></ToUserName>
        <FromUserName><![CDATA[%s]]></FromUserName>
        <CreateTime>%s</CreateTime>
        <MsgType><![CDATA[text]]></MsgType>
        <Content><![CDATA[%s]]></Content>
-       </xml>"""%(FromUserName,ToUserName,CreateTime,"您好，您的反馈信息已收到，需要的话请留下联系电话，我们客服会进一步跟踪处理，我们的进步需要您的支持与鼓励^_^")
+       </xml>"""%(FromUserName,ToUserName,CreateTime,)
 
     return HttpResponse(reply_xml)
 
