@@ -7,11 +7,13 @@ import xml.etree.ElementTree as ET
 
 TOKEN = "xiaoxian"
 
+@csrf_exempt
 def accessInterface(request):
     if request.method == 'GET':
         response = HttpResponse(checkSignature(request),content_type="text/plain")
         return response
     if request.method == 'POST':
+        print "post+++"
         response = HttpResponse(responseMsg(request))
         return response
     else:
@@ -36,6 +38,7 @@ def checkSignature(request):
 
 
 def responseMsg(request):
+    print request.body
     xmlstr = smart_str(request.body)
     xml = ET.fromstring(xmlstr)
 
