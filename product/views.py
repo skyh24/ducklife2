@@ -21,7 +21,7 @@ def index_view(request, templateName):
         'categorys' : categorys,
         })
 
-def kefu_view(request, templateName):
+def kefu_view(request):
     xmlstr = smart_str(request.body)
     xml = ET.fromstring(xmlstr)
 

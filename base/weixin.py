@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import urllib, urllib2
 import hashlib, json
 from django.http import HttpResponse
