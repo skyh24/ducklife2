@@ -77,8 +77,8 @@ def create_order(request):
         addr = request.POST.get('address')
         price = request.POST.get('price')
         send = request.POST.get('send')
-        print "create_order+++", order_id
-        print uid, number, name, phone, addr, price, send
+        # print "create_order+++", order_id
+        # print uid, number, name, phone, addr, price, send
         # if form.is_valid():
         # clean = form.cleaned_data
 
