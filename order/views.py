@@ -24,8 +24,8 @@ def order_view(request, templateName):
         return HttpResponseRedirect('/')
     print request.session['openid']
     openid = request.session['openid']
+    orders = Order.objects.filter(openid = openid, isPaid = False, isCancel = False).order_by('-datetime')
     # orders = Order.objects.filter(openid = openid, isPaid = False, isCancel = False).order_by('-datetime')
-    orders = Order.objects.filter(openid = openid, isCancel = False).order_by('-datetime')
 
     for order in orders:
         order.items = OrderItem.objects.filter(order = order)

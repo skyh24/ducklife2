@@ -151,6 +151,7 @@ def paid_order(request):
         if id:
             order = Order.objects.get(id = id)
             order.isPaid = True
+            order.isDelivery = True         #####################
             order.save()
             success = True
     return HttpResponse(json.dumps({
