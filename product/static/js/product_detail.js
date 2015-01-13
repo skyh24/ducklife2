@@ -44,6 +44,16 @@ $(function () {
   		$('#send').val(send);
   	});
 
+  	$('.addr').click(function(event) {
+  		var address = $("[name='address']").val();
+  		if(!address) {
+  			$("[name='address']").val($(this).html());
+  		} else {
+  			$(this).html(address);
+  			$(this).addClass("btn-negative");
+  		}
+  	})
+
   	//检测是否填好了表单
 	$('#check').click(function(event){
 		var name = $("[name='name']").val();
@@ -67,6 +77,19 @@ $(function () {
 			event.preventDefault();
 		｝*/
 		else {
+			if($('.addr').hasClass("btn-negative")) {
+				$.post('/address/',
+		      {
+				addr1 = $('#ad1').html();
+				addr2 = $('#ad2').html();
+		      },function(data, textStatus){
+			      if( textStatus == "success") {
+			      	  alert("添加默认地址" + addr1 + addr2);
+			      } else {
+			      	  alert('添加默认地址不成功');
+			      }
+		      }, 'json');
+			}
 			alert("您的订单已提交。")
 			return;
 		}

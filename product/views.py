@@ -2,13 +2,14 @@
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.utils.encoding import smart_str, smart_unicode 
-from product.models import Product, Category, Cart
+from product.models import Product, Category, Cart, Customer
 
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 import xml.etree.ElementTree as ET 
 
 from django.template import RequestContext
+from django.core.exceptions import ObjectDoesNotExist
 
 import json
 
@@ -51,12 +52,41 @@ def product_view(request, c_id, templateName):
 def product_detail_view(request, p_id, templateName):
     if 'openid' not in request.session:
         return HttpResponseRedirect('/code/?next=/product/' + p_id + '/')
+    ####你要加默认地址2个的
+    openid = request.session['openid']
+    print "openid+++", openid
+    try:
+        customer = Customer.objects.get(openid = openid)
+    except:
+        print "new customer+++++"
+        customer = Customer.objects.create(
+            openid = openid,
+            addrone = "点击添加上面默认地址",
+            addrtwo = "点击添加上面默认地址",
+            )
+    print "customer+++", customer
     product = Product.objects.get(uid = p_id)
     categorys = Category.objects.all()
     return render_to_response(templateName, {
+        'customer' : customer,
         'product' : product,
         'categorys' : categorys,
         }, context_instance = RequestContext(request))
+
+@csrf_exempt
+def add_address(request):
+    success = False
+    if request.method == 'POST':
+        openid = request.session['openid']
+        addrone = request.POST.get('addr1', None)
+        addrtwo = request.POST.get('addr2', None)
+        customer = Customer.objects.get(openid)
+        customer.addrone = addrone
+        customer.addrtwo = addrtwo
+        customer.save()
+    return HttpResponse(json.dumps({
+        'success' : success,
+        }))
 
 def cart_view(request, templateName):
     # if 'openid' not in request.session:

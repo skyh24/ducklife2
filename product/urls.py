@@ -13,6 +13,7 @@ urlpatterns = patterns('product.views',
     url(r'^product/(\d+)/$', 'product_detail_view', {'templateName' : 'product_detail.html'}),
     url(r'^clear/$' ,'clear_cart'), # for ajax
     url(r'^add/$', 'add_product'), # for ajax
+    url(r'^address/$', 'add_address'),
     url(r'^reduce/$', 'reduce_product'), # for ajax
     url(r'^cancel/$', 'cancel_product'), # for ajax
 )

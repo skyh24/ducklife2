@@ -7,6 +7,11 @@ class Category(models.Model):
     name = models.CharField(max_length = 32)
     datetime = models.DateTimeField(auto_now_add = True)
 
+class Customer(models.Model):
+    openid = models.CharField(max_length = 256)
+    addrone = models.CharField(max_length = 256)
+    addrtwo = models.CharField(max_length = 256)
+
 class Product(models.Model):
     uid = models.CharField(max_length = 16, unique = True)
     name = models.CharField(max_length = 32)
