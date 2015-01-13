@@ -22,6 +22,10 @@ import datetime
 import settings
 import os.path
 
+import sys
+reload(sys) 
+sys.setdefaultencoding( "utf-8" ) 
+
 def backend_view(request, templateName):
     notOrders = Order.objects.filter(isPaid = False,
         isCancel = False, isDelivery = False).order_by('-datetime')
