@@ -82,7 +82,8 @@ def create_product(request):
             html = clean['description']
             page = etree.HTML(html.lower().decode('utf-8'))
             ps = page.xpath(u"//p")
-            desc = ''.join(ps)
+            for p in ps:
+                desc += p.text
             print "create_product+++", desc
             try:
                 category = Category.objects.get(id = clean['category'])
