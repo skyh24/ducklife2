@@ -15,6 +15,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 
 from django.template import RequestContext
+from lxml import etree
 
 import json
 import datetime
@@ -73,6 +74,12 @@ def create_product(request):
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
             clean = form.cleaned_data
+            ###########################
+            html = clean['description']
+            page = etree.HTML(html.lower().decode('utf-8'))
+            ps = page.xpath(u"//p")
+            desc ＝ ''.join(ps)
+            print "create_product+++", desr
             try:
                 category = Category.objects.get(id = clean['category'])
             except:
@@ -80,7 +87,8 @@ def create_product(request):
             product = Product.objects.create(
                 uid = datetime.datetime.now().strftime('%Y%m%d%H%M%S'),
                 name = clean['name'],
-                description = clean['description'],
+                # description = clean['description'],
+                description = desc,
                 price = clean['price'],
                 picture = clean['picture'],
                 category = category,
