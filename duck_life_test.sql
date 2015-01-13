@@ -306,6 +306,16 @@ CREATE TABLE IF NOT EXISTS `product_product` (
   KEY `product_product_6f33f001` (`category_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=4 ;
 
+CREATE TABLE `product_customer` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `openid` varchar(256) COLLATE utf8_bin NOT NULL,
+    `addrone` varchar(256) COLLATE utf8_bin NOT NULL,
+    `addrtwo` varchar(256) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=1 ;
+20150113193407
+20150113193557
+20150113193739
+20150113193900
 --
 -- 转存表中的数据 `product_product`
 --
