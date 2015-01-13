@@ -53,7 +53,7 @@ def product_detail_view(request, p_id, templateName):
     #if 'openid' not in request.session:
     #    return HttpResponseRedirect('/code/?next=/product/' + p_id + '/')
     ####你要加默认地址2个的
-    request.session['openid'] = 1234567  #debug
+    request.session['openid'] = '1234567'  #debug
     openid = request.session['openid']
     print "openid+++", openid
     try:
@@ -81,7 +81,7 @@ def add_address(request):
         openid = request.session['openid']
         addrone = request.POST.get('addr1', None)
         addrtwo = request.POST.get('addr2', None)
-        customer = Customer.objects.get(openid)
+        customer = Customer.objects.get(openid = openid)
         customer.addrone = addrone
         customer.addrtwo = addrtwo
         customer.save()
