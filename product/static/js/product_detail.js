@@ -80,8 +80,8 @@ $(function () {
 			if($('.addr').hasClass("btn-negative")) {
 				$.post('/address/',
 			      {
-					addr1 = $('#ad1').html();
-					addr2 = $('#ad2').html();
+					addr1 : $('#ad1').html(),
+					addr2 : $('#ad2').html()
 			      },function(data, textStatus){
 				      if( textStatus == "success") {
 				      	  alert("添加默认地址" + addr1 + addr2);
