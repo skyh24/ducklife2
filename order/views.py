@@ -77,13 +77,16 @@ def create_order(request):
         addr = request.POST.get('address')
         price = request.POST.get('price')
         send = request.POST.get('send')
+        nid = len(Order.objects.all())
+        print "nid+++", nid
+
         # print "create_order+++", order_id
         # print uid, number, name, phone, addr, price, send
         # if form.is_valid():
         # clean = form.cleaned_data
 
         order = Order.objects.create(
-            id = int(datetime.datetime.now().strftime('%Y%m%d%H%M%S') + str(order_id)),
+            id = '000' + nid, #int(datetime.datetime.now().strftime('%Y%m%d%H%M%S') + str(order_id)),
             openid = request.session['openid'],
             name = name,
             phone = phone,
