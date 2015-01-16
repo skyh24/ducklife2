@@ -77,7 +77,7 @@ def create_order(request):
         addr = request.POST.get('address')
         price = request.POST.get('price')
         send = request.POST.get('send')
-        nid = len(Order.objects.all())
+        nid = 250 + len(Order.objects.all())
         print "nid+++", nid
 
         # print "create_order+++", order_id
@@ -86,7 +86,7 @@ def create_order(request):
         # clean = form.cleaned_data
 
         order = Order.objects.create(
-            id = '000' + nid, #int(datetime.datetime.now().strftime('%Y%m%d%H%M%S') + str(order_id)),
+            id = '000%s' % nid, #int(datetime.datetime.now().strftime('%Y%m%d%H%M%S') + str(order_id)),
             openid = request.session['openid'],
             name = name,
             phone = phone,
